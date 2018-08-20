@@ -66,19 +66,20 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">Data Read from archive</a></li><li><a href="#3">Summary Statistics</a></li><li><a href="#4">Correlation and Feature Exploration</a></li><li><a href="#5">Decission Tree for factor importance</a></li><li><a href="#6">Linear Regression</a></li><li><a href="#7">Non Linear Regression</a></li></ul></div><pre class="codeinput"><span class="comment">%----------------------------------------------------------%</span>
-<span class="comment">%                                                          %</span>
-<span class="comment">%                     .Alexandra E. Arntsen.               %</span>
-<span class="comment">%               .Candidate Exam for Data Scientist.        %</span>
-<span class="comment">%                         .NRG Systems.                    %</span>
-<span class="comment">%                                                          %</span>
-<span class="comment">%                                                          %</span>
-<span class="comment">%   Functions called in this script:                       %</span>
-<span class="comment">%                                                          %</span>
-<span class="comment">%                     []= download_dataset()               %</span>
-<span class="comment">%                     []= Model_Performance()              %</span>
-<span class="comment">%                     []= makeTrainingSet()                %</span>
-<span class="comment">%----------------------------------------------------------%</span>
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">Data Read from archive</a></li><li><a href="#3">Summary Statistics</a></li><li><a href="#4">Correlation and Feature Exploration</a></li><li><a href="#5">Decission Tree for factor importance</a></li><li><a href="#6">Linear Regression</a></li><li><a href="#7">Non Linear Regression</a></li></ul></div><pre class="codeinput"><span class="comment">%------------------------------------------------------------------------------------------------%</span>
+<span class="comment">%                                                                                                %</span>
+<span class="comment">%                                        .Alexandra E. Arntsen.                                  %</span>
+<span class="comment">%                                  .Candidate Exam for Data Scientist.                           %</span>
+<span class="comment">%                                            .NRG Systems.                                       %</span>
+<span class="comment">%                                                                                                %</span>
+<span class="comment">%                                                                                                %</span>
+<span class="comment">%    Functions called in this script:                                                            %</span>
+<span class="comment">%                                                                                                %</span>
+<span class="comment">%                     [] = download_dataset()                                                    %</span>
+<span class="comment">%                     [] = Model_Performance()                                                   %</span>
+<span class="comment">%                     [] = makeTrainingSet()                                                     %</span>
+<span class="comment">%                     [] = redblue()                                                             %</span>
+<span class="comment">%------------------------------------------------------------------------------------------------%</span>
 
 <span class="comment">% Problem # 1</span>
 <span class="comment">% Exploratory Analysis</span>
@@ -93,7 +94,7 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 <span class="comment">% Error</span>
 <span class="comment">%-------------------------------------------------</span>
 
-  <span class="comment">% housing_data = csvread('housing.data.csv');</span>
+<span class="comment">%    housing_data = csvread('housing.data.csv');</span>
 
 <span class="comment">%-------------------------------------------------</span>
 <span class="comment">% Header Import</span>
@@ -154,13 +155,13 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
                               [190 300 250 20], <span class="string">'FontSize'</span>,14,<span class="string">'FontWeight'</span>,<span class="string">'bold'</span>,<span class="keyword">...</span>
                               <span class="string">'String'</span>, <span class="string">'Summary Statistics'</span>);
 
-      set(fig1,<span class="string">'Position'</span>,[0, 0, 650, 315])
+        <span class="comment">%set(fig1,'Position',[0, 0, 650, 315])</span>
 
 <span class="comment">%-------------------------------------------------</span>
 <span class="comment">% Box Plot of the Distribution among variables</span>
 <span class="comment">%-------------------------------------------------</span>
 
-  fig2 = figure
+ fig2 = figure;
        axes2 = axes(<span class="string">'Parent'</span>,fig2);
        box(axes2,<span class="string">'on'</span>);
        set(gcf,<span class="string">'Position'</span>,[10 10 900 600])
@@ -271,19 +272,6 @@ t =
 
   Use GET to show all properties
 
-
-fig2 = 
-
-  Figure (2) with properties:
-
-      Number: 2
-        Name: ''
-       Color: [0.9400 0.9400 0.9400]
-    Position: [440 378 560 420]
-       Units: 'pixels'
-
-  Use GET to show all properties
-
 Warning: Negative limits ignored 
 
 fig2b = 
@@ -382,7 +370,7 @@ s2 =
 
   Use GET to show all properties
 
-</pre><img vspace="5" hspace="5" src="AEArntsen_P1_Script_01.png" style="width:650px;height:315px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_02.png" style="width:900px;height:600px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_03.png" style="width:900px;height:600px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_04.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_05.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_06.png" style="width:560px;height:420px;" alt=""> <h2 id="4">Correlation and Feature Exploration</h2><pre class="codeinput"><span class="comment">%-------------------------------------------------</span>
+</pre><img vspace="5" hspace="5" src="AEArntsen_P1_Script_01.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_02.png" style="width:900px;height:600px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_03.png" style="width:900px;height:600px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_04.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_05.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_06.png" style="width:560px;height:420px;" alt=""> <h2 id="4">Correlation and Feature Exploration</h2><pre class="codeinput"><span class="comment">%-------------------------------------------------</span>
 <span class="comment">% Examine how variables are related</span>
 <span class="comment">%-------------------------------------------------</span>
 
@@ -434,6 +422,7 @@ s2 =
       clear <span class="string">ind</span>
   <span class="keyword">end</span>
 
+  figure
   im= imagesc(ccoef_diag)
   colormap(cmap_new)
 
@@ -494,7 +483,7 @@ im =
 
   Use GET to show all properties
 
-</pre><img vspace="5" hspace="5" src="AEArntsen_P1_Script_07.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_08.png" style="width:560px;height:420px;" alt=""> <h2 id="5">Decission Tree for factor importance</h2><pre class="codeinput"><span class="comment">%-------------------------------------------------</span>
+</pre><img vspace="5" hspace="5" src="AEArntsen_P1_Script_07.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_08.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_09.png" style="width:560px;height:420px;" alt=""> <h2 id="5">Decission Tree for factor importance</h2><pre class="codeinput"><span class="comment">%-------------------------------------------------</span>
 <span class="comment">% implement a Bosted decision tree regression to find</span>
 <span class="comment">% attributes that best predict crime rate</span>
 <span class="comment">%-------------------------------------------------</span>
@@ -534,7 +523,7 @@ R2 training: 0.958460
 
 R2 test: 0.683488
 
-</pre><img vspace="5" hspace="5" src="AEArntsen_P1_Script_09.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_10.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_11.png" style="width:560px;height:420px;" alt=""> <h2 id="6">Linear Regression</h2><pre class="codeinput"><span class="comment">%-------------------------------------------------</span>
+</pre><img vspace="5" hspace="5" src="AEArntsen_P1_Script_10.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_11.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_12.png" style="width:560px;height:420px;" alt=""> <h2 id="6">Linear Regression</h2><pre class="codeinput"><span class="comment">%-------------------------------------------------</span>
 
 [housing_data,m,n] = download_dataset();  <span class="comment">% Matrix of all the data</span>
 
@@ -624,7 +613,7 @@ R2 training: 0.439321
 
 R2 test: 0.746912
 
-</pre><img vspace="5" hspace="5" src="AEArntsen_P1_Script_12.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_13.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_14.png" style="width:560px;height:420px;" alt=""> <h2 id="7">Non Linear Regression</h2><pre class="codeinput"><span class="comment">%-------------------------------------------------</span>
+</pre><img vspace="5" hspace="5" src="AEArntsen_P1_Script_13.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_14.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_15.png" style="width:560px;height:420px;" alt=""> <h2 id="7">Non Linear Regression</h2><pre class="codeinput"><span class="comment">%-------------------------------------------------</span>
 
 [housing_data,m,n] = download_dataset();  <span class="comment">% Matrix of all the data</span>
 
@@ -743,21 +732,22 @@ R2 training: 0.205687
 
 R2 test: 0.504163
 
-</pre><img vspace="5" hspace="5" src="AEArntsen_P1_Script_15.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_16.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_17.png" style="width:560px;height:420px;" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017a</a><br></p></div><!--
+</pre><img vspace="5" hspace="5" src="AEArntsen_P1_Script_16.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_17.png" style="width:560px;height:420px;" alt=""> <img vspace="5" hspace="5" src="AEArntsen_P1_Script_18.png" style="width:560px;height:420px;" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017a</a><br></p></div><!--
 ##### SOURCE BEGIN #####
-%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH%
-%                                                          %
-%                     .Alexandra E. Arntsen.               %
-%               .Candidate Exam for Data Scientist.        %
-%                         .NRG Systems.                    %
-%                                                          %
-%                                                          %
-%   Functions called in this script:                       %
-%                                                          %
-%                     []= download_dataset()               %
-%                     []= Model_Performance()              %
-%                     []= makeTrainingSet()                %
-%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH%
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH%
+%                                                                                                %
+%                                        .Alexandra E. Arntsen.                                  %
+%                                  .Candidate Exam for Data Scientist.                           %
+%                                            .NRG Systems.                                       %
+%                                                                                                %
+%                                                                                                %
+%    Functions called in this script:                                                            %
+%                                                                                                %
+%                     [] = download_dataset()                                                    %
+%                     [] = Model_Performance()                                                   %
+%                     [] = makeTrainingSet()                                                     %
+%                     [] = redblue()                                                             %
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH%
 
 % Problem # 1 
 % Exploratory Analysis
@@ -775,7 +765,7 @@ R2 test: 0.504163
 % Error
 %REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-  
  
-  % housing_data = csvread('housing.data.csv');
+%    housing_data = csvread('housing.data.csv');
  
 %REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
 % Header Import 
@@ -839,13 +829,13 @@ R2 test: 0.504163
                               [190 300 250 20], 'FontSize',14,'FontWeight','bold',...
                               'String', 'Summary Statistics');
       
-      set(fig1,'Position',[0, 0, 650, 315]) 
+        %set(fig1,'Position',[0, 0, 650, 315]) 
       
 %REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- 
 % Box Plot of the Distribution among variables
 %REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
   
-  fig2 = figure
+ fig2 = figure;
        axes2 = axes('Parent',fig2);
        box(axes2,'on');
        set(gcf,'Position',[10 10 900 600])
@@ -997,6 +987,7 @@ R2 test: 0.504163
       clear ind
   end
   
+  figure
   im= imagesc(ccoef_diag)
   colormap(cmap_new)
   
